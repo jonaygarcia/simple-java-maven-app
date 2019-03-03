@@ -6,7 +6,11 @@ pipeline {
         }
     }
     stages {
-        stage('Build') { 
+        stage('Initialize'){
+            def dockerHome = tool 'SceDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+        stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package' 
             }
