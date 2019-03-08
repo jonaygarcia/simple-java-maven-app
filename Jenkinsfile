@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'jenkins_centos7_jdk7u21_mvn35_ant192' 
-            args '-v /root/.m2:/root/.m2' 
+            image 'centos7_java8u21_mvn33_ant192' 
+            args '-v /root/.m2:/root/.m2 -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro' 
         }
     }
     stages {
